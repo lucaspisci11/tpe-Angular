@@ -16,7 +16,7 @@
 
     <tbody>
 
-      <tr>
+      <tr *ngFor="let product of products">
 
         <td><img [src]="product.image"[alt]="product.name"class="product-img"></td>
 
@@ -29,10 +29,10 @@
         </td>
 
         <td class="price">
-          ${{product.price}}
+          {{product.price |currency}}
         </td>
 
-        <td class="stock">
+        <td class="stock"><span *ngIf="product.stock==0">sin stock</span>
           {{product.stock}}
         </td>
 
@@ -47,77 +47,4 @@
     </tbody>
 
   </table>
-
-
-  <!-- CARRITO -->
-
-  <div class="cart-container">
-
-    <h2 class="cart-title">
-      Carrito
-    </h2>
-
-    <div class="cart-item">
-
-      <div class="cart-info">
-
-        <img
-          [src]="product.image"
-          [alt]="product.name"
-          class="cart-img"
-        >
-
-        <div>
-
-          <div class="cart-name">
-            {{product.name}}
-          </div>
-
-          <div class="cart-price">
-            ${{product.price}}
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="cart-buttons">
-
-        <button class="cart-btn btn-minus">
-          -
-        </button>
-
-        <span class="cart-quantity">
-          1
-        </span>
-
-        <button class="cart-btn btn-plus">
-          +
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="cart-total">
-
-      <span class="total-text">
-        Total:
-      </span>
-
-      <span class="total-price">
-        $1500
-      </span>
-
-    </div>
-
-
-    <button class="checkout-btn">
-      Finalizar compra
-    </button>
-
-  </div>
-
 </div>
