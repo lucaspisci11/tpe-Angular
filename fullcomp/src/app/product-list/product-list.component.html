@@ -11,6 +11,7 @@
         <th>Marca</th>
         <th>Precio</th>
         <th>Stock</th>
+        <th>Compra</th>
       </tr>
     </thead>
 
@@ -35,11 +36,13 @@
         <td class="stock"><span *ngIf="product.stock==0">sin stock</span>
           {{product.stock}}
         </td>
-
         <td>
-          <button class="btn-cart">
-            Agregar
-          </button>
+          <button (click)="downQuantity(product)">-</button>
+         <input 
+          type="text"
+          [(ngModel)]="product.quantity"
+          (keydown)="onChangeQuantity($event, product)">
+          <button (click)="upQuantity(product)">+</button>
         </td>
 
       </tr>
