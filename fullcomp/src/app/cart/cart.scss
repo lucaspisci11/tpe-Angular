@@ -1,0 +1,31 @@
+:host{
+  display:block;
+}
+
+.cart-btn{
+  width:55px;
+  height:55px;
+  border:none;
+  border-radius:50%;
+  background:linear-gradient(135deg,#06b6d4,#2563eb);
+  color:white;
+  font-size:24px;
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:0 0 20px rgba(37,99,235,.4),
+             0 10px 25px rgba(0,0,0,.25);
+
+  transition:.25s;
+}
+
+.cart-btn:hover{
+  transform:translateY(-2px) scale(1.05);
+}
+
+.cart-btn:active{
+  transform:scale(.95);
+}

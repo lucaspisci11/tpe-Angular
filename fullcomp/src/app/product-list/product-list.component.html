@@ -1,6 +1,21 @@
-<div class="container">
+<div class="products-layout">
 
-  <!-- TABLA PRODUCTOS -->
+  <div class="products-header">
+
+    <div>
+      <h1 class="page-title">Productos destacados</h1>
+      <p class="page-subtitle">
+        Encontrá los mejores dispositivos tecnológicos
+      </p>
+    </div>
+
+    <input
+      class="search-box"
+      type="text"
+      placeholder="🔍 Buscar producto..."
+    >
+
+  </div>
 
   <table>
 
@@ -11,7 +26,7 @@
         <th>Marca</th>
         <th>Precio</th>
         <th>Stock</th>
-        <th>Compra</th>
+        <th>Cantidad</th>
       </tr>
     </thead>
 
@@ -19,30 +34,76 @@
 
       <tr *ngFor="let product of products">
 
-        <td><img [src]="product.image"[alt]="product.name"class="product-img"></td>
-
         <td>
-          {{product.name}}
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            class="product-img">
         </td>
 
         <td>
-          {{product.make}}
+          {{ product.name }}
+        </td>
+
+        <td>
+          {{ product.make }}
         </td>
 
         <td class="price">
-          {{product.price |currency}}
+          {{ product.price | currency }}
         </td>
 
-        <td class="stock"><span *ngIf="product.stock==0">sin stock</span>
-          {{product.stock}}
+        <td class="stock">
+
+          <span *ngIf="product.stock > 0">
+            {{ product.stock }}
+          </span>
+
+          <span
+            *ngIf="product.stock === 0"
+            class="out-stock">
+            Sin stock
+          </span>
+
         </td>
+
         <td>
-          <button (click)="downQuantity(product)">-</button>
-         <input 
-          type="text"
-          [(ngModel)]="product.quantity"
-          (keydown)="onChangeQuantity($event, product)">
-          <button (click)="upQuantity(product)">+</button>
+
+          <div class="buy-container">
+
+            <div class="quantity-controls">
+
+              <button
+                class="qty-btn"
+                (click)="downQuantity(product)"
+                [disabled]="product.quantity === 0">
+                -
+              </button>
+
+              <input
+                type="number"
+                [(ngModel)]="product.quantity"
+                (keydown)="onChangeQuantity($event, product)"
+                min="0"
+                [max]="product.stock">
+
+              <button
+                class="qty-btn"
+                (click)="upQuantity(product)"
+                [disabled]="product.stock === 0 || product.quantity >= product.stock">
+                +
+              </button>
+
+            </div>
+
+            <button
+              class="add-btn"
+              [disabled]="product.stock === 0 || product.quantity === 0">
+              🛒 Agregar
+            </button>
+
+          </div>
+
         </td>
 
       </tr>
@@ -50,4 +111,5 @@
     </tbody>
 
   </table>
+
 </div>
