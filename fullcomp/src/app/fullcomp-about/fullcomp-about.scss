@@ -18,3 +18,21 @@ h1 {
     font-size: 0.9rem;
     padding: 10px 15px;
 }
+.card{
+    transition:all .3s ease;
+    border:1px solid #374151 !important;
+    background:#1f2937 !important;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.35) !important;
+}
+
+.card h4{
+    color:#f8fafc;
+}
+
+.card p{
+    color:#cbd5e1;
+}
