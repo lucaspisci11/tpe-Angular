@@ -68,42 +68,22 @@
         </td>
 
         <td>
-
           <div class="buy-container">
 
-            <div class="quantity-controls">
+          <app-input-integer
+            [quantity]="product.quantity"
+            [stock]="product.stock"
+            (quantityChange)="product.quantity = $event">
+          </app-input-integer>
 
-              <button
-                class="qty-btn"
-                (click)="downQuantity(product)"
-                [disabled]="product.quantity === 0">
-                -
-              </button>
-
-              <input
-                type="number"
-                [(ngModel)]="product.quantity"
-                (keydown)="onChangeQuantity($event, product)"
-                min="0"
-                [max]="product.stock">
-
-              <button
-                class="qty-btn"
-                (click)="upQuantity(product)"
-                [disabled]="product.stock === 0 || product.quantity >= product.stock">
-                +
-              </button>
-
-            </div>
-
-            <button
-              class="add-btn"
-              [disabled]="product.stock === 0 || product.quantity === 0">
-              🛒 Agregar
-            </button>
+                     <button
+                         class="add-btn"
+                          [disabled]="product.stock === 0 || product.quantity === 0">
+                         🛒 Agregar
+                      </button>
 
           </div>
-
+          
         </td>
 
       </tr>

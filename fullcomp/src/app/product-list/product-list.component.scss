@@ -148,56 +148,6 @@ tbody tr:hover{
   gap:10px;
 }
 
-.quantity-controls{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-
-/* ===================================
-   INPUT CANTIDAD
-=================================== */
-
-input{
-  width:70px;
-  padding:8px;
-  border-radius:8px;
-  border:1px solid #475569;
-  background:#111827;
-  color:white;
-  text-align:center;
-}
-
-/* ===================================
-   BOTONES + / -
-=================================== */
-
-.qty-btn{
-  width:36px;
-  height:36px;
-  border:none;
-  border-radius:8px;
-  background:#2563eb;
-  color:white;
-  cursor:pointer;
-  transition:.25s;
-}
-
-.qty-btn:hover{
-  background:#1d4ed8;
-  transform:translateY(-2px);
-}
-
-.qty-btn:disabled{
-  background:#475569;
-  cursor:not-allowed;
-  opacity:.6;
-}
-
-/* ===================================
-   BOTÓN AGREGAR
-=================================== */
 
 .add-btn{
   width:auto;
