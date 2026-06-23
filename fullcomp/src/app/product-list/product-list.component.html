@@ -67,24 +67,21 @@
 
         </td>
 
-        <td>
-          <div class="buy-container">
+              <td>
+            <div class="buy-container">
 
           <app-input-integer
-            [quantity]="product.quantity"
-            [stock]="product.stock"
-            (quantityChange)="product.quantity = $event">
+            [product]="product">
           </app-input-integer>
 
-                     <button
-                         class="add-btn"
-                          [disabled]="product.stock === 0 || product.quantity === 0">
-                         🛒 Agregar
-                      </button>
+          <button
+            class="add-btn"
+            [disabled]="product.stock === 0 || product.quantity === 0">
+            🛒 Agregar
+          </button>
 
-          </div>
-          
-        </td>
+        </div>
+      </td>
 
       </tr>
 

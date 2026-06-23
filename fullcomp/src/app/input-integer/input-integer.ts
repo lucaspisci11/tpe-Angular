@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from '../product-list/product';
 
 @Component({
   selector: 'app-input-integer',
@@ -8,22 +9,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class InputInteger {
 
-  @Input() quantity: number = 0;
-  @Input() stock: number = 0;
+  @Input()
+  product!: Product;
 
-  @Output() quantityChange = new EventEmitter<number>();
-
-  upQuantity() {
-    if (this.quantity < this.stock) {
-      this.quantity++;
-      this.quantityChange.emit(this.quantity);
+  upQuantity(product: Product): void {
+    if (product.quantity < product.stock) {
+      product.quantity++;
     }
   }
 
-  downQuantity() {
-    if (this.quantity > 0) {
-      this.quantity--;
-      this.quantityChange.emit(this.quantity);
+  downQuantity(product: Product): void {
+    if (product.quantity > 0) {
+      product.quantity--;
     }
   }
 }

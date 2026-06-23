@@ -2,19 +2,19 @@
 
   <button
     class="qty-btn"
-    (click)="downQuantity()"
-    [disabled]="quantity === 0">
+    (click)="downQuantity(product)"
+    [disabled]="product.quantity === 0">
     -
   </button>
 
   <span class="quantity-value">
-    {{ quantity }}
+    {{ product.quantity }}
   </span>
 
   <button
     class="qty-btn"
-    (click)="upQuantity()"
-    [disabled]="stock === 0 || quantity >= stock">
+    (click)="upQuantity(product)"
+    [disabled]="product.stock === 0 || product.quantity >= product.stock">
     +
   </button>
 
