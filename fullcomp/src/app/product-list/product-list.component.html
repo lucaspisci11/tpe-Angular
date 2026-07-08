@@ -70,13 +70,15 @@
               <td>
             <div class="buy-container">
 
-          <app-input-integer
-            [product]="product">
-          </app-input-integer>
+            <app-input-integer
+                [quantity]="product.quantity"
+                (quantityChange)="product.quantity = $event"
+                [max]="product.stock">
+            </app-input-integer>
 
           <button
             class="add-btn"
-            [disabled]="product.stock === 0 || product.quantity === 0">
+            [disabled]="product.stock === 0 || product.quantity <= 0">
             🛒 Agregar
           </button>
 
