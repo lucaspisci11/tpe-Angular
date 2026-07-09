@@ -1,6 +1,6 @@
 # FC Fullcomp
 
-This project was generated using Angular CLI version 19.2.12.
+This project was generated using Angular CLI version 21.2.10
 
 Nombre y apellido: Lucas Piscicelli
 
