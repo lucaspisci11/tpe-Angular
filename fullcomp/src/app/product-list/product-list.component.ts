@@ -3,6 +3,7 @@ import { Product } from './product';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { InputInteger } from '../input-integer/input-integer';
+import { CartService } from '../cart/cart-service';
 
 @Component({
   selector: 'app-product-list',
@@ -40,8 +41,18 @@ export class ProductListComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+constructor(private cartService: CartService) { }
 
   ngOnInit(): void { }
+
+ addToCart(product: Product): void {
+  this.cartService.addToCart(product);
+  product.quantity = 0;
+}
+
+getAvailableStock(product: Product): number {
+  return this.cartService.getAvailableStock(product);
+}
+
 
 }

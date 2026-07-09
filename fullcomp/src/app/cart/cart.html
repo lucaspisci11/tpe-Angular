@@ -1,3 +1,43 @@
-<button class="cart-btn" aria-label="Carrito">
-  <span>🛒</span>
-</button>
+<div class="cart-wrapper">
+
+  <button class="cart-btn" aria-label="Carrito">
+    <span>🛒</span>
+  </button>
+
+  <div class="cart-dropdown">
+
+    @if (cartList.length === 0) {
+    } @else {
+      @for (product of cartList; track product.name) {
+        <div class="cart-item">
+
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            class="cart-img">
+
+          <div class="cart-info">
+            <strong>{{ product.name }}</strong>
+            <span>Cantidad: {{ product.quantity }}</span>
+            <span>{{ product.price | currency }}</span>
+          </div>
+
+          <button
+            class="remove-btn"
+            (click)="removeFromCart(product)">
+            ✕
+          </button>
+
+        </div>
+        <hr>
+
+        <div class="cart-total">
+          <strong>Total:</strong>
+          {{ getTotal() | currency }}
+        </div>
+      }
+    }
+
+  </div>
+
+</div>

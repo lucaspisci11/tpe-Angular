@@ -55,35 +55,36 @@
 
         <td class="stock">
 
-          <span *ngIf="product.stock > 0">
-            {{ product.stock }}
+          <span *ngIf="getAvailableStock(product) > 0">
+            {{ getAvailableStock(product) }}
           </span>
 
           <span
-            *ngIf="product.stock === 0"
+            *ngIf="getAvailableStock(product) === 0"
             class="out-stock">
             Sin stock
           </span>
 
         </td>
 
-              <td>
-            <div class="buy-container">
+        <td>
+          <div class="buy-container">
 
             <app-input-integer
-                [quantity]="product.quantity"
-                (quantityChange)="product.quantity = $event"
-                [max]="product.stock">
+              [quantity]="product.quantity"
+              (quantityChange)="product.quantity = $event"
+              [max]="getAvailableStock(product)">
             </app-input-integer>
 
-          <button
-            class="add-btn"
-            [disabled]="product.stock === 0 || product.quantity <= 0">
-            🛒 Agregar
-          </button>
+            <button
+              class="add-btn"
+              [disabled]="getAvailableStock(product) === 0 || product.quantity === 0"
+              (click)="addToCart(product)">
+              🛒 Agregar
+            </button>
 
-        </div>
-      </td>
+          </div>
+        </td>
 
       </tr>
 

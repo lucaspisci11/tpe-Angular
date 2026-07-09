@@ -18,8 +18,13 @@
 
   padding:0 38px;
   height:90px;
-  overflow:hidden;
+
+  
+  overflow: visible;
+  position: relative;
+  z-index: 9999;
 }
+
 
 /* ===================================
    LOGO

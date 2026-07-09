@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
-import { Cart } from './cart/cart';
+import { CartComponent } from './cart/cart';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, Cart],
+  imports: [RouterOutlet, RouterLink, CartComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
