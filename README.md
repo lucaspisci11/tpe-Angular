@@ -1,18 +1,22 @@
-# FC Fullcomp
+This project was generated using Angular CLI version 21.2.10.
 
-This project was generated using Angular CLI version 21.2.10
+Nombre y apellido: Lucas Piscicelli  
+DNI: 47118487
+Email: lucaspiscicelli051@gmail.com  
+Sede: Tandil
 
-Nombre y apellido: Lucas Piscicelli
-Dni:47118487
-Email:Lucaspiscicelli051@gmail.com
-Sede:Tandil
+Proyecto: FullComp - Tienda de Tecnología
 
-Proyecto: Sistema de catálogo de productos tecnológicos.
+Se desarrolló una aplicación web donde se aplican los conceptos trabajados durante el seminario de Angular. El proyecto permite visualizar un catálogo de productos, agregarlos y eliminarlos del carrito de compras, controlar el stock disponible y calcular el total de la compra.
 
-Se realizó un proyecto donde se pueden visualizar distintos productos tecnológicos con su imagen, marca, precio y stock disponible. Cada producto cuenta con un selector de cantidad reutilizable que permite aumentar o disminuir la cantidad respetando el stock disponible.
+Además, cuenta con una sección de comentarios desarrollada con Reactive Forms, donde los usuarios pueden dejar su nombre, correo electrónico y un comentario. Los comentarios pueden agregarse y eliminarse, y permanecen almacenados utilizando una API REST de MockAPI.
 
-El botón **Agregar** permanece deshabilitado cuando el producto no tiene stock o cuando la cantidad seleccionada es cero, habilitándose automáticamente cuando el usuario selecciona una cantidad válida.
+De momento el proyecto está diseñado para desktop.
 
-Durante el desarrollo se aplicaron conceptos trabajados en el seminario, como la creación de componentes reutilizables, comunicación entre componentes mediante `@Input` y `@Output`, data binding y directivas de Angular.
+Todo esto consumiendo una API REST mediante HttpClient y MockAPI.
 
-De momento el proyecto está diseñado para su visualización en escritorio.
+Productos:
+https://6a565607b17de7bebbde27e0.mockapi.io/api/products
+
+Comentarios:
+https://6a565607b17de7bebbde27e0.mockapi.io/api/comments
