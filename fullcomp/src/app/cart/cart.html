@@ -7,8 +7,13 @@
   <div class="cart-dropdown">
 
     @if (cartList.length === 0) {
+
+      <p class="empty-cart">El carrito está vacío.</p>
+
     } @else {
+
       @for (product of cartList; track product.name) {
+
         <div class="cart-item">
 
           <img
@@ -29,13 +34,14 @@
           </button>
 
         </div>
-        <hr>
 
-        <div class="cart-total">
-          <strong>Total:</strong>
-          {{ getTotal() | currency }}
-        </div>
       }
+
+      <div class="cart-total">
+        <strong>Total:</strong>
+        {{ getTotal() | currency }}
+      </div>
+
     }
 
   </div>

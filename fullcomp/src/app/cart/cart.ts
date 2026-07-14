@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { CartService } from './cart-service';
 import { Product } from '../product-list/product';
 
@@ -21,8 +22,9 @@ export class CartComponent {
   removeFromCart(product: Product): void {
     this.cartService.removeFromCart(product);
   }
+
   getTotal(): number {
-  return this.cartService.getTotal();
-}
+    return this.cartService.getTotal();
+  }
 
 }

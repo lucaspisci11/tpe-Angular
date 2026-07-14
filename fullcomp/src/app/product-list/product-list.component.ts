@@ -1,9 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from './product';
-import { CommonModule } from '@angular/common';
+import {
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID
+} from '@angular/core';
+
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
+import { Product } from './product';
 import { InputInteger } from '../input-integer/input-integer';
 import { CartService } from '../cart/cart-service';
+import { ProductsData } from '../products-data';
 
 @Component({
   selector: 'app-product-list',
@@ -14,45 +23,38 @@ import { CartService } from '../cart/cart-service';
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[] = [
-    {
-      name: 'Iphone 16 Pro',
-      make: 'Apple',
-      price: 1500,
-      stock: 5,
-      image: '/img/16pro.jpeg',
-      quantity: 0,
-    },
-    {
-      name: 'A21',
-      make: 'Samsung',
-      price: 1000,
-      stock: 0,
-      image: '/img/a21.jfif',
-      quantity: 0,
-    },
-    {
-      name: 'Iphone 17 Pro',
-      make: 'Apple',
-      price: 2500,
-      stock: 2,
-      image: '/img/iphone.17pro.jfif',
-      quantity: 0,
-    }
-  ];
+  products: Product[] = [];
 
-constructor(private cartService: CartService) { }
+ constructor(
+  private cartService: CartService,
+  private productsData: ProductsData,
+  private changeDetector: ChangeDetectorRef,
+  @Inject(PLATFORM_ID) private platformId: object
+) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  if (isPlatformBrowser(this.platformId)) {
+    this.productsData.getProducts().subscribe({
+      next: (products) => {
+        console.log('Productos recibidos en navegador:', products);
 
- addToCart(product: Product): void {
-  this.cartService.addToCart(product);
-  product.quantity = 0;
+        this.products = products;
+        this.changeDetector.detectChanges();
+      },
+      error: (error) => {
+        console.error('Error al obtener productos:', error);
+      }
+    });
+  }
 }
 
-getAvailableStock(product: Product): number {
-  return this.cartService.getAvailableStock(product);
-}
+  addToCart(product: Product): void {
+    this.cartService.addToCart(product);
+    product.quantity = 0;
+  }
 
+  getAvailableStock(product: Product): number {
+    return this.cartService.getAvailableStock(product);
+  }
 
 }
