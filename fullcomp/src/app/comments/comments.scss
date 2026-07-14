@@ -1,0 +1,162 @@
+:host {
+  display: block;
+}
+
+.comments-page {
+  min-height: 70vh;
+  padding: 60px 20px;
+  background: #0f172a;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.comments-card {
+  width: 100%;
+  max-width: 650px;
+
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 18px;
+  padding: 32px;
+
+  color: white;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.comments-card h1 {
+  margin: 0 0 10px;
+  font-size: 32px;
+}
+
+.comments-description {
+  margin-bottom: 28px;
+  color: #94a3b8;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 13px 15px;
+
+  border: 1px solid #475569;
+  border-radius: 10px;
+
+  background: #0f172a;
+  color: white;
+  font-size: 15px;
+
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #22d3ee;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.error-message {
+  color: #f87171;
+  font-size: 13px;
+}
+
+.submit-btn {
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #06b6d4, #2563eb);
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.comments-list {
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #334155;
+}
+
+.comments-list h2 {
+  margin-bottom: 18px;
+  font-size: 24px;
+}
+
+.comment-item {
+  margin-bottom: 14px;
+  padding: 15px;
+
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+}
+
+.comment-item strong {
+  color: #22d3ee;
+}
+
+.comment-item p {
+  margin: 8px 0 0;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.delete-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px;
+
+  background: #ef4444;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
