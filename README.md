@@ -20,3 +20,13 @@ https://6a565607b17de7bebbde27e0.mockapi.io/api/products
 
 Comentarios:
 https://6a565607b17de7bebbde27e0.mockapi.io/api/comments
+
+## Ejecución del proyecto:
+
+Si el proyecto se abre desde StackBlitz asociado al repositorio, ingresar a la carpeta del proyecto y ejecutar:
+
+```bash
+cd fullcomp
+npm install
+npm start
+```
